@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download WeRide App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(to right, #ff7e5f, #feb47b);
+            color: #fff;
+            text-align: center;
+        }
+        .container {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 20px;
+            border-radius: 10px;
+        }
+        h1 {
+            margin: 0 0 20px;
+        }
+        .loader {
+            border: 6px solid #f3f3f3;
+            border-radius: 50%;
+            border-top: 6px solid #3498db;
+            width: 40px;
+            height: 40px;
+            -webkit-animation: spin 2s linear infinite;
+            animation: spin 2s linear infinite;
+            margin: 20px auto 0;
+        }
+        @-webkit-keyframes spin {
+            0% { -webkit-transform: rotate(0deg); }
+            100% { -webkit-transform: rotate(360deg); }
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+    <script>
+        function redirectToStore() {
+            var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+            
+            // iOS detection
+            if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+                window.location.href = 'https://apps.apple.com/us/app/weride-driver-app/id6504784538';
+            }
+            // Android detection
+            else if (/android/i.test(userAgent)) {
+                window.location.href = 'https://play.google.com/store/apps/details?id=com.weride.partner&pcampaignid=web_share';
+            }
+            // Fallback to website for non-mobile devices
+            else {
+                window.location.href = 'https://weride.eu';
+            }
+        }
+        window.onload = redirectToStore;
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Redirecting to the App Store...</h1>
+        <div class="loader"></div>
+    </div>
+</body>
+</html>
